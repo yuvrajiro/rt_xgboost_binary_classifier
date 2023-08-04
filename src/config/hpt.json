@@ -1,0 +1,69 @@
+{
+  "num_trials": 20,
+  "hyperparameters": [
+    {
+      "name": "n_estimators",
+      "short_desc": "The number of trees in the forest.",
+      "type": "int",
+      "search_type": "uniform",
+      "range_low": 50,
+      "range_high": 500
+    },
+    {
+      "name" : "learning_rate",
+      "short_desc": "Learning rate shrinks the contribution of each tree by learning_rate.",
+      "type": "real",
+      "search_type": "uniform",
+      "range_low": 0.01,
+      "range_high": 0.2
+    },
+    {
+      "name" : "max_depth",
+      "short_desc": "The maximum depth of the tree.",
+      "type": "int",
+      "search_type": "uniform",
+      "range_low": 3,
+      "range_high": 10
+    },
+    {
+      "name" : "colsample_bytree",
+      "short_desc": "The subsample ratio of columns when constructing each tree.",
+      "type": "real",
+      "search_type": "uniform",
+      "range_low": 0.5,
+      "range_high": 1.0
+    },
+    {
+      "name" : "min_child_weight",
+      "short_desc": "Minimum sum of instance weight (hessian) needed in a child.",
+      "type": "int",
+      "search_type": "uniform",
+      "range_low": 1,
+      "range_high": 10 
+    },
+    {
+      "name" : "subsample",
+      "short_desc": "Subsample ratio of the training instance.",
+      "type": "real",
+      "search_type": "uniform",
+      "range_low": 0.5,
+      "range_high": 1.0
+    },
+    {
+      "name" : "gamma",
+      "short_desc": "Minimum loss reduction required to make a further partition on a leaf node of the tree.",
+      "type": "real",
+      "search_type": "uniform",
+      "range_low": 0.0,
+      "range_high": 0.5
+    },
+    {
+      "name" : "reg_lambda",
+      "short_desc": "L2 regularization term on weights.",
+      "type": "real",
+      "search_type": "uniform",
+      "range_low": 0.0,
+      "range_high": 1.0
+    }
+  ]
+}
