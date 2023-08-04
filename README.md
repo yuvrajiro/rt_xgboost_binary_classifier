@@ -2,7 +2,7 @@
 
 ## Project Description
 
-This repository is a dockerized implementation of the Random Forest binary classifier. It is implemented in flexible way that it can be used with any binary classification dataset with the use of JSON-formatted data schema file.
+This repository is a dockerized implementation of the XGBoost classifier. It is implemented in flexible way that it can be used with any binary classification dataset with the use of JSON-formatted data schema file.
 
 The main purpose of this repository is to provide a complete example of a machine learning model implementation that is ready for deployment.
 
@@ -12,7 +12,7 @@ Here are the highlights of this implementation:
   - A standardized project structure
   - A generalized data schema structure to be used for binary classification datasets
   - A flexible preprocessing pipeline built using **SciKit-Learn** and **feature-engine**
-  - A Random Forest algorithm built using **SciKit-Learn**
+  - A XGClassifier algorithm built using **XGBoost**
   - Hyperparameter-tuning using **scikit-optimize**
   - SHAP explainer using the **shap** package
   - **FASTAPI** inference service which provides endpoints for predictions and local explanations.
@@ -119,7 +119,7 @@ adaptive_binary_classifier/
   - **`config/`**: for configuration files such as hyperparameters, model configuration, hyperparameter tuning-configuration specs, paths, and preprocessing configuration.
   - **`data_models/`**: for data models for input validation including the schema, training and test files, and the inference request data.
   - **`hyperparameter_tuning/`**: for hyperparameter-tuning (HPT) functionality using scikit-optimize
-  - **`prediction/`**: for prediction model (random forest) script
+  - **`prediction/`**: for prediction model (XGBoost) script
   - **`preprocessing/`**: for data preprocessing scripts including the preprocessing pipeline, target encoder, and custom transformers.
   - **`schema/`**: for schema handler script.
   - **`xai/`**: explainable AI scripts (SHAP explainer)
@@ -157,7 +157,7 @@ adaptive_binary_classifier/
 
 - Create your virtual environment and install dependencies listed in `requirements.txt` which is inside the `requirements` directory.
 - Move the three example files (`titanic_schema.json`, `titanic_train.csv` and `titanic_test.csv`) in the `examples` directory into the `./model_inputs_outputs/inputs/schema`, `./model_inputs_outputs/inputs/data/training` and `./model_inputs_outputs/inputs/data/testing` folders, respectively (or alternatively, place your custom dataset files in the same locations).
-- Run the script `src/train.py` to train the random forest classifier model. This will save the model artifacts, including the preprocessing pipeline and label encoder, in the path `./model_inputs_outputs/model/artifacts/`. If you want to run with hyperparameter tuning then include the `-t` flag. This will also save the hyperparameter tuning results in the path `./model_inputs_outputs/outputs/hpt_outputs/`.
+- Run the script `src/train.py` to train the  XGBclassifier model. This will save the model artifacts, including the preprocessing pipeline and label encoder, in the path `./model_inputs_outputs/model/artifacts/`. If you want to run with hyperparameter tuning then include the `-t` flag. This will also save the hyperparameter tuning results in the path `./model_inputs_outputs/outputs/hpt_outputs/`.
 - Run the script `src/predict.py` to run batch predictions using the trained model. This script will load the artifacts and create and save the predictions in a file called `predictions.csv` in the path `./model_inputs_outputs/outputs/predictions/`.
 - Run the script `src/serve.py` to start the inference service, which can be queried using the `/ping`, `/infer` and `/explain` endpoints. The service runs on port 8080.
 
