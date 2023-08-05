@@ -1,4 +1,4 @@
-# Adaptive Binary Classifier Implementation
+# XGBoost Binary Classifier Implementation
 
 ## Project Description
 
