@@ -4,8 +4,6 @@
 
 This repository is a dockerized implementation of the XGBoost classifier. It is implemented in flexible way that it can be used with any binary classification dataset with the use of JSON-formatted data schema file.
 
-The main purpose of this repository is to provide a complete example of a machine learning model implementation that is ready for deployment.
-
 Here are the highlights of this implementation:
 
 - Implementation contains a full-suite of functionality such as:
