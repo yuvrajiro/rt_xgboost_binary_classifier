@@ -21,6 +21,9 @@ venv.bak/
 coverage.xml
 *.cover
 
+# software development
+.idea/
+
 
 
 
