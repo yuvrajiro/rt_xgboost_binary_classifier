@@ -26,33 +26,6 @@ Here are the highlights of this implementation:
   - The train and test (or prediction) files must contain an ID field. The train data must also contain a target field.
 - The data need not be preprocessed because the implementation already contains logic to handle missing values, categorical features, outliers, and scaling.
 
-This repository is part of a tutorial series called [Creating Adaptive ML Models](https://docs.readytensor.ai/category/creating-adaptive-ml-models) on Ready Tensor, a web platform for AI developers and users. The purpose of the tutorial series is to help AI developers create adaptive algorithm implementations that avoid hard-coding your logic to a specific dataset. This makes it easier to re-use your algorithms with new datasets in the future without requiring any code change.
-
-The tutorial series is divided into 3 modules as follows:
-
-1. **Model development**: This module covers the following tutorials:
-
-   - **Creating Standardized Project Structure**: This tutorial reviews the standardized project structure we will use in this series.
-   - **Using Data Schemas**: This tutorial discusses how data schemas can be used to avoid hard-coding implementations to specific datasets.
-   - **Creating Adaptive Data Preprocessing-Pipelines**: In this tutorial, we cover how to create data preprocessing pipelines that can work with diverse set of algorithms such as tree-based models and neural networks.
-   - **Building a Binary Classifier in Python**: This tutorial reviews a binary classifier model implementation which enables providing a common interface for various types of algorithms.
-   - **Hyper-Parameter Tuning (HPT) Using SciKit-Optimize**: This tutorial covers how to use SciKit-Optimize to perform hyper-parameter tuning on ML models.
-   - **Integrating FastAPI for Online Inference**: This tutorial covers how we can set up an inference service using FastAPI to provide online predictions from our machine learning model.
-   - **Model Interpretability with Shapley Values**: This tutorial describes implementing an eXplainable AI (XAI) technique called Shap to provide interpretability to ML models.
-
-2. **Quality Assurance for ML models**: This module covers the following tutorials:
-
-   - **Error Handling and Logging**: In this tutorial, we review how to add basic error handling and logging to ML model implementations.
-   - **Data Validation Using Pydantic**: This tutorial covers how we can use the pydantic library to validate input data for our machine learning model implementation.
-   - **Testing ML Model Implementations**: This 6-part comprehensive tutorial covers the topic of testing machine learning model implementations including unit, integration, coverage and performance testing.
-   - **Static Code Analysis for ML Models**: This is a two-part tutorial introducing static code analysis, discussing its importance in machine learning projects, and demonstrating how to implement it using various Python tools while automating the process with Tox.
-
-3. **Model Containerization for Deployment**: This module covers the following tutorials:
-
-   - **Overview of ML Model Containerization**: In this tutorial, we review why containerization is a key part of deployment of ML models and explore its benefits. We also review common containerization patterns considering whether the container includes training, batch prediction, or inference services.
-   - **Containerizing ML Models - The Hybrid Pattern**: In this tutorial, we cover how to containerize an ML model with Docker to include both training and inference services.
-
-This particular branch called [module-3-complete](https://github.com/readytensor/adaptive_binary_classifier/tree/module-1-complete) is the completion point of third (and final) module in the series. This is the final, completion version of the code for the binary classifier model.
 
 ## Project Structure
 
