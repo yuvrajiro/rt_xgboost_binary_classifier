@@ -422,3 +422,60 @@ class OneHotEncoderMultipleCols(BaseEstimator, TransformerMixin):
         if self.drop_original:
             transformed_data.drop(self.fitted_vars, axis=1, inplace=True)
         return transformed_data
+
+class ColumnRenamer(BaseEstimator, TransformerMixin):
+    """
+    Renames columns in a dataframe. To be used in XGBoost model training.
+    Since XGBoost Dmatrix feature name doesnot support "[" , "]" and "<" characters,
+    to remove them from the column names.
+    """
+    def __init__(self, check_for: List[str] = None , replace_by: List[str] = None):
+        """
+        Initialize a new instance of the `ColumnRenamer` class.
+
+        Args:
+            check_for (list[str]): List of strings to check for in column names.
+            replace_by (list[str]): List of strings to replace the strings in
+            `check_for` with.
+        """
+        super().__init__()
+        self.check_for = check_for
+        self.replace_by = replace_by
+
+    def fit(self, X: pd.DataFrame, y=None):
+        """
+        Learn the values to be used for renaming columns from the input data X.
+
+        Args:
+            X (pandas.DataFrame): Data to learn renaming from.
+            y : unused
+
+        Returns:
+            ColumnRenamer: self
+        """
+        if len(self.check_for) != len(self.replace_by):
+            raise ValueError(
+                f"Length of check_for and replace_by should be equal, but got "
+                f"{len(self.check_for)} and {len(self.replace_by)} respectively."
+            )
+        return self
+
+    def transform(self, X: pd.DataFrame, y=None):
+        """
+        Rename columns in the input data X.
+
+        Args:
+            X (pandas.DataFrame): Data to rename columns for.
+            y : unused
+
+        Returns:
+            pandas.DataFrame: Data with renamed columns.
+        """
+        for check, replace in zip(self.check_for, self.replace_by):
+            X.columns = X.columns.str.replace(check, replace)
+        return X
+
+
+
+
+

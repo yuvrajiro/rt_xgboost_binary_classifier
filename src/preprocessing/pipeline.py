@@ -109,6 +109,13 @@ def get_preprocess_pipeline(data_schema: Any, preprocessing_config: dict) -> Pip
     one_hot_encoder = transformers.OneHotEncoderMultipleCols(
         ohe_columns=data_schema.categorical_features
     )
+    # remove any feature named contains [,] or < , remove "<" by _less_than_ and
+    # remove "[" and "]"
+    column_renamer = transformers.ColumnRenamer(
+        check_for = ["[", "]", "<"],
+        replace_by = ["_", "_", "_less_than_"],
+    )
+
 
     pipeline = Pipeline(
         [
@@ -127,6 +134,7 @@ def get_preprocess_pipeline(data_schema: Any, preprocessing_config: dict) -> Pip
             ("duplicated_feature_dropper", duplicated_feature_dropper),
             ("one_hot_encoder", one_hot_encoder),
             ("correlated_feature_dropper", correlated_feature_dropper),
+            ("column_renamer", column_renamer),
         ]
     )
 
