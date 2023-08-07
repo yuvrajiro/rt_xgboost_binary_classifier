@@ -5,11 +5,8 @@ from typing import Optional
 import joblib
 import numpy as np
 import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.exceptions import NotFittedError
 from xgboost import XGBClassifier
-
-
 
 warnings.filterwarnings("ignore")
 
@@ -70,7 +67,7 @@ class Classifier:
         self.model = self.build_model()
         self._is_trained = False
 
-    def build_model(self) -> RandomForestClassifier:
+    def build_model(self) -> XGBClassifier:
         """Build a new XGBoost binary classifier."""
 
         model = XGBClassifier(
@@ -172,8 +169,8 @@ def train_predictor_model(
     Instantiate and train the predictor model.
 
     Args:
-        train_X (pd.DataFrame): The training data inputs.
-        train_y (pd.Series): The training data labels.
+        train_inputs (pd.DataFrame): The training data inputs.
+        train_targets (pd.Series): The training data labels.
         hyperparameters (dict): Hyperparameters for the classifier.
 
     Returns:
